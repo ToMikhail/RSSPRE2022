@@ -1,11 +1,89 @@
 @font-face {
   font-family: Roboto;
-   src: url("assets/fonts/Roboto/Roboto-Regular.ttf");
- }
+  src: url("assets/fonts/Roboto/Roboto-Thin.ttf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("assets/fonts/Roboto/Roboto-Regular.ttf");
+  font-weight: 400;
+}
 
- @font-face {
-  font-family: Ficus;
-   src: url("assets/fonts/Forum/Forum-Regular.ttf");
- }
+@font-face {
+  font-family: Forum;
+  src: url("assets/fonts/Forum/Forum-Regular.ttf");
+  font-weight: 400;
+}
 
- 
+$color-dark: #030303;
+$color-dark-red: #710707;
+$color-gold: #9d8665;
+
+$font-stack: Roboto, sans-serif;
+$font-title: Forum, serif;
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 240px;
+  height: 200px;
+}
+
+.header {
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: black;
+}
+.container-header {
+  justify-content: space-between;
+}
+
+.wrap-logo {
+  display: flex;
+  flex-direction: row;
+
+  .logo-img {
+    margin-right: 20px;
+  }
+
+  .heading {
+    font: 28px/50px $font-title;
+    letter-spacing: 5px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+}
+// !TODO:make logo hover
+// .wrap-logo:hover {
+
+// }
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  gap: 75px;
+
+  .nav-link {
+    font-family: $font-stack;
+    font-weight: 100;
+    font-size: 22px;
+    line-height: 50px;
+    letter-spacing: 2px;
+    color: #ffffff;
+  }
+
+  .nav-link:hover,
+  .nav-link:active {
+    color: $color-gold;
+    transition: .15s linear;
+  }
+}
