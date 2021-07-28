@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@font-face {
+  font-family: Roboto;
+  src: url("assets/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: Ficus;
+  src: url("assets/fonts/Forum/Forum-Regular.ttf");
+}
+/*# sourceMappingURL=style.css.map */
