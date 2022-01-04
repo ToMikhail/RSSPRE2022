@@ -3,22 +3,21 @@
   src: url("assets/fonts/Merriweather.ttf");
   font-weight: 700;
 }
-
 @font-face {
   font-family: "Inter";
   src: url("assets/fonts/Inter.ttf");
   font-weight: 400;
 }
-
 @font-face {
   font-family: "Inter";
   src: url("assets/fonts/Inter.ttf");
   font-weight: 700;
 }
 
+$color-golden: #bdae82;
+
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
@@ -33,22 +32,16 @@ body {
 }
 
 .container {
-  width: 1440px;
-  /* change on max-width */
+  width: 1440px; /* change on max-width */
   margin: 0 auto;
   padding: 0 20px;
+  // background: #000;
 }
 
 .header-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   height: 90px;
   background: url(./assets/img/bg1.jpg);
   background-repeat: no-repeat;
@@ -59,15 +52,13 @@ body {
   background-image: url("./assets/svg/logo.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   width: 50px;
   height: 50px;
 }
 
 .logo:hover {
-  -webkit-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
-          filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 .nav {
@@ -75,12 +66,10 @@ body {
 }
 
 .nav-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   width: 550px;
+
   list-style-type: none;
 }
 
@@ -92,7 +81,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #bdae82;
+  color: $color-golden;
 }
 
 .toogle-lng {
@@ -103,9 +92,10 @@ body {
 }
 
 ._active {
-  color: #bdae82;
+  color: $color-golden;
 }
 
+// section HERO
 .hero-container {
   padding: 0 80px;
   height: 820px;
@@ -117,7 +107,6 @@ body {
 .container-inner {
   width: 37%;
 }
-
 .main-container {
   padding: 0 0;
 }
@@ -139,7 +128,7 @@ h1 {
 .btn {
   width: 220px;
   height: 55px;
-  background-color: #bdae82;
+  background-color: $color-golden;
   color: white;
   bottom: none;
   border-radius: 0px;
@@ -147,11 +136,9 @@ h1 {
   font-size: 20px;
   line-height: 40px;
   cursor: pointer;
-  -webkit-transition: color ease-out 0.3s;
   transition: color ease-out 0.3s;
 }
 
 .btn:hover {
   color: black;
 }
-/*# sourceMappingURL=style.css.map */
