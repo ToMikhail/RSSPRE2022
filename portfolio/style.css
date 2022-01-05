@@ -89,6 +89,8 @@ body {
   text-decoration: none;
   font-size: 20px;
   line-height: 50px;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
 }
 
 .nav-link:hover {
@@ -100,6 +102,10 @@ body {
   font-size: 20px;
   line-height: 50px;
   color: white;
+}
+
+.toogle-lng span {
+  cursor: pointer;
 }
 
 .active {
@@ -276,7 +282,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 100px;
+  padding: 100px 20px 0 20px;
 }
 
 .portfolio-container {
@@ -326,6 +332,14 @@ h1 {
   background-color: transparent;
   background-image: url(./assets/svg/Play_hover.svg);
   background-size: contain;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+  cursor: pointer;
+}
+
+.btn-play:hover {
+  -webkit-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+          filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 .price-section {
@@ -384,8 +398,15 @@ h1 {
 }
 
 .contacts-section {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
   height: 700px;
   background-image: url(./assets/img/bg-contacts.jpg);
+}
+
+.section-inner .section-title {
+  background-color: transparent;
 }
 
 .form {
@@ -401,10 +422,12 @@ h1 {
 
 .form input,
 .form textarea {
+  padding-left: 20px;
   font-family: "Inter";
   font-weight: normal;
   font-size: 20px;
   line-height: 40px;
+  color: #fff;
   background: rgba(0, 0, 0, 0.5);
   border: 2px solid #bdae82;
   border-radius: 0px;
@@ -428,5 +451,59 @@ h1 {
 
 .form ::placeholder {
   color: #bdae82;
+}
+
+.footer-container {
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #000;
+  padding: 0  20px;
+}
+
+.copyright {
+  word-spacing: 20px;
+}
+
+.social-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.social-list__item {
+  margin-right: 20px;
+  cursor: pointer;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+.social-list__item:hover {
+  -webkit-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+          filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+.social-list__item:nth-of-type(1) {
+  content: url(./assets/svg/inst1.svg);
+}
+
+.social-list__item:nth-of-type(2) {
+  content: url(./assets/svg/fb1.svg);
+}
+
+.social-list__item:nth-of-type(3) {
+  content: url(./assets/svg/tw1.svg);
+}
+
+.social-list__item:nth-of-type(4) {
+  content: url(./assets/svg/pinterest1.svg);
+  margin-right: 0;
 }
 /*# sourceMappingURL=style.css.map */

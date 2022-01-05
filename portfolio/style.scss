@@ -1,3 +1,5 @@
+$color-golden: #bdae82;
+
 @font-face {
   font-family: "Merriweather";
   src: url("assets/fonts/Merriweather.ttf");
@@ -14,7 +16,7 @@
   font-weight: 700;
 }
 
-$color-golden: #bdae82;
+
 
 * {
   box-sizing: border-box;
@@ -77,6 +79,7 @@ body {
   text-decoration: none;
   font-size: 20px;
   line-height: 50px;
+  transition: .3s ease-out;
 }
 
 .nav-link:hover {
@@ -88,6 +91,9 @@ body {
   font-size: 20px;
   line-height: 50px;
   color: white;
+  span {
+    cursor: pointer;
+  }
 }
 
 .active {
@@ -235,7 +241,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
+  padding: 100px 20px 0 20px;
 }
 
 .portfolio-container {
@@ -277,6 +283,12 @@ h1 {
   background-color: transparent;
   background-image: url(./assets/svg/Play_hover.svg);
   background-size: contain;
+  transition: .3s ease-out;
+  cursor: pointer;
+}
+
+.btn-play:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 // price-section
@@ -327,20 +339,27 @@ h1 {
 
 // contacts-section
 .contacts-section {
+  align-items: end;
   height: 700px;
   background-image: url(./assets/img/bg-contacts.jpg);
 }
-
+.section-inner {
+  .section-title {
+    background-color: transparent;
+  }
+} 
 .form {
   display: flex;
   flex-direction: column;
   gap: 25px;
   input,
   textarea {
+    padding-left: 20px;
     font-family: "Inter";
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
+    color: #fff;
     
     background: rgba(0, 0, 0, 0.5);
     border: 2px solid #bdae82;
@@ -353,4 +372,42 @@ h1 {
   ::placeholder {
     color: $color-golden;
   }
+}
+
+// footer-container
+.footer-container {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding:0  20px;
+}
+
+.copyright {
+  word-spacing: 20px;
+}
+.social-list {
+  display: flex;
+}
+.social-list__item {
+  margin-right: 20px;
+  cursor: pointer;
+  transition: .5s ease-out;
+}
+.social-list__item:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+.social-list__item:nth-of-type(1) {
+  content: url(./assets/svg/inst1.svg);
+}
+.social-list__item:nth-of-type(2) {
+  content: url(./assets/svg/fb1.svg);
+}
+.social-list__item:nth-of-type(3) {
+  content: url(./assets/svg/tw1.svg);
+}
+.social-list__item:nth-of-type(4) {
+  content: url(./assets/svg/pinterest1.svg);
+  margin-right: 0;
 }
