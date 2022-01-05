@@ -596,5 +596,11 @@ body {
 .link {
   text-decoration: none;
   color: #fff;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+}
+
+.link:hover {
+  color: #bdae82;
 }
 /*# sourceMappingURL=style.css.map */

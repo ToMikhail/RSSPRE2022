@@ -492,4 +492,9 @@ text-align: center;
 .link {
   text-decoration: none;
   color: #fff;
+  transition: .3s ease-out;
+}
+
+.link:hover {
+  color: $color-golden;
 }
