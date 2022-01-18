@@ -33,3 +33,20 @@ console.log(`your score is - 110 points.
 // config.reduce((sum, configItem) => sum + (isArray(configItem)
 //     ? evaluate(configItem.every(predicate))
 //     : evaluate(predicate(configItem))), 0);
+
+const burger = document.querySelector(".burger");
+const  burgerNav= document.querySelector(".nav-header");
+
+function closeMenu(event) {
+  if(event.target.classList.contains("nav-link")) {
+    burger.classList.remove('is-active')
+    burgerNav.classList.remove('is-active')
+  }
+}
+
+burger.addEventListener('click', function() {
+  burger.classList.toggle('is-active')
+  burgerNav.classList.toggle('is-active')
+})
+
+burgerNav.addEventListener('click', closeMenu)

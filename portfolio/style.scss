@@ -23,6 +23,7 @@ $color-golden: #bdae82;
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 html,
@@ -31,13 +32,18 @@ body {
 }
 
 body {
+  background: #000;
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: white;
 }
 
+.burger {
+  display: none;
+}
+
 .container {
-  width: 1440px; /* change on max-width */
+  max-width: 1440px; /* change on max-width */
   margin: 0 auto;
 }
 
@@ -103,8 +109,6 @@ body {
   }
 }
 
-
-
 .active {
   color: $color-golden;
 }
@@ -122,8 +126,7 @@ body {
   background-image: url("./assets/img/bg1.jpg");
   background-position: center -90px;
   background-repeat: no-repeat;
-  letter-spacing: .5px;
-  
+  letter-spacing: 0.5px;
 }
 
 .container-inner {
@@ -134,7 +137,6 @@ body {
   margin: 0 0;
   font-family: "Merriweather", serif;
   font-style: normal;
-  // font-weight: bold;
   font-size: 60px;
   line-height: 120px;
 }
@@ -262,17 +264,16 @@ body {
 
 .subtitle {
   font-style: normal;
-font-weight: bold;
-font-size: 20px;
-line-height: 40px;
-text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
 }
 
 // PORTFOLIO section
 
 .portfolio-container {
   height: 1500px;
-  // padding-top: 100px;
 }
 
 .portfolio-buttons {
@@ -492,9 +493,77 @@ text-align: center;
 .link {
   text-decoration: none;
   color: #fff;
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .link:hover {
   color: $color-golden;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    overflow-x: hidden;
+    padding: 0 80px;
+
+    .toogle-lng {
+      margin-right: 20px;
+      margin-left: auto;
+    }
+
+    .burger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 50px;
+      height: 30px;
+      z-index: 3;
+
+      .line {
+        width: 50px;
+        height: 3px;
+        background: #fff;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .burger:hover {
+      cursor: pointer;
+    }
+
+    .burger.is-active {
+      .line:nth-of-type(1) {
+        transform: translateY(13px) rotate(45deg);
+      }
+
+      .line:nth-of-type(2) {
+        opacity: 0;
+      }
+
+      .line:nth-of-type(3) {
+        transform: translateY(-13px) rotate(-45deg);
+      }
+    }
+
+    .nav-header {
+      position: fixed;
+      top: 0;
+      right: -620px;
+      z-index: 2;
+      height: 100%;
+      margin: 0;
+      padding-top: 135px;
+      padding-left: 125px;
+      transition: all 0.5s ease-in-out;
+
+      .nav-list {
+        flex-direction: column;
+      }
+    }
+
+    .nav-header.is-active {
+      right: 0;
+      background: #000;
+      opacity: 0.9;
+    }
+  }
 }
