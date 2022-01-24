@@ -757,15 +757,19 @@ body {
             align-items: center;
   }
   .skills-container {
-    padding-top: 80px;
+    padding: 80px 0 0 0;
   }
   .skills-container .skills-items {
-    padding: 44px 40px 0 40px;
+    padding: 44px 40px 20px 40px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 50px;
   }
   .skills-container .skills-items .skill-item {
     width: 300px;
     height: 185px;
-    margin-bottom: 55px;
+    margin-bottom: 30px;
     padding: 0 10px;
   }
   .skills-container .skills-items .skill-item .subtitle {
