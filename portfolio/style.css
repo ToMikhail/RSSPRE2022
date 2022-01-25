@@ -193,8 +193,13 @@ body {
   background-color: #bdae82;
 }
 
-.btn-gold:hover {
+.btn-gold:hover,
+.portfolio-btn__active:hover {
   color: #fff;
+}
+
+.portfolio-btn__active {
+  background-color: #bdae82;
 }
 
 .btn-transparent {
@@ -259,9 +264,9 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -762,9 +767,6 @@ body {
   }
   .skills-container .skills-items {
     padding: 44px 40px 20px 40px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     gap: 50px;
   }
   .skills-container .skills-items .skill-item {
