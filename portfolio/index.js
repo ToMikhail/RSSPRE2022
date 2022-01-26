@@ -138,6 +138,19 @@ langBtn.addEventListener("click", (event) => {
   }
 });
 
+/* function cashing img */
+
+function preloadImages() {
+  seasons.forEach(season => {
+    for (let i = 0; i < season.length; i++) {
+      const img = new Image();
+      img.src = `./assets/img/${season}/${i + 1}.jpg`
+      
+    }
+  });
+}
+
+preloadImages();
 
 
 
