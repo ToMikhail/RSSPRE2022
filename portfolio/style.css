@@ -131,7 +131,7 @@ body {
   color: white;
 }
 
-.toogle-lng span {
+.toogle-lng .lang {
   cursor: pointer;
 }
 
@@ -148,8 +148,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 160px 80px 330px 80px;
+  padding: 160px 80px 20% 80px;
   background-image: url("./assets/img/bg1.jpg");
+  background-size: auto 910px;
   background-position: center -90px;
   background-repeat: no-repeat;
   letter-spacing: 0.5px;
@@ -193,13 +194,14 @@ body {
   background-color: #bdae82;
 }
 
+.portfolio-btn__active {
+  color: #000;
+  background-color: #bdae82;
+}
+
 .btn-gold:hover,
 .portfolio-btn__active:hover {
   color: #fff;
-}
-
-.portfolio-btn__active {
-  background-color: #bdae82;
 }
 
 .btn-transparent {
@@ -211,7 +213,8 @@ body {
 }
 
 .btn-transparent:active,
-.btn-transparent:focus {
+.btn-transparent:focus,
+.portfolio-btn__active {
   border: 2px solid #bdae82;
 }
 
@@ -844,11 +847,15 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .nav-header.is-active {
-    width: 100%;
-    padding-left: 20px;
+@media (max-width: 600px) {
+  .nav-header.is-active .nav-list {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
+}
+
+@media (max-width: 480px) {
   .header-container {
     padding: 0 20px;
   }

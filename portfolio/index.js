@@ -1,4 +1,6 @@
 "use strict";
+import i18Obj from "./translate.js";
+
 console.log(`your score is - 110 points.
 Отзывы по пунктам ТЗ:
 Все пункты выполнены полностью!`);
@@ -39,7 +41,7 @@ const burgerNav = document.querySelector(".nav-header");
 
 const portfolioBtn = document.querySelectorAll(".portfolio-btn");
 const portfolioBtns = document.querySelector(".portfolio-buttons");
-const portfolioImages = document.querySelectorAll('.portfolio-img');
+const portfolioImages = document.querySelectorAll(".portfolio-img");
 const seasons = ["winter", "spring", "summer", "autumn"];
 
 function closeMenu(event) {
@@ -58,7 +60,7 @@ burgerNav.addEventListener("click", closeMenu);
 
 /* PORTFOLIO section*/
 
-/* function changes images */
+/* function changes images --- 1 - variant*/
 // function changeImage(event) {
 //   if(event.target.classList.contains('portfolio-btn')) {
 //     if(event.target.dataset.season === 'winter') {
@@ -84,12 +86,12 @@ burgerNav.addEventListener("click", closeMenu);
 //   }
 // }
 
-/* function changes images */
+/* function changes images --- 2 - variant*/
 function changeImage(event) {
-  if(event.target.classList.contains('portfolio-btn')) {
+  if (event.target.classList.contains("portfolio-btn")) {
     let season = event.target.dataset.season;
     portfolioImages.forEach((img, index) => {
-      img.src = `./assets/img/${season}/${index + 1}.jpg`
+      img.src = `./assets/img/${season}/${index + 1}.jpg`;
     });
   }
 }
@@ -110,5 +112,34 @@ portfolioBtns.addEventListener("click", (event) => {
   }
 });
 
+/* function toggle language */
+
+const langContent = document.querySelectorAll("[data-i18]");
+const langBtn = document.querySelector(".toogle-lng");
+const langBtns = document.querySelectorAll(".lang");
+
+function getTranslate(lang) {
+  langContent.forEach((element) => {
+    element.textContent = i18Obj[lang][element.dataset.i18];
+  });
+};
+
+langBtn.addEventListener("click", (event) => {
+  langBtns.forEach(element => {
+    element.classList.remove("active");
+  });
+  event.target.classList.add('active');
+
+  if (event.target.textContent === 'RU') {
+    getTranslate("ru");
+  }
+  else {
+    getTranslate("en");
+  }
+});
 
 
+
+
+
+// getTranslate("ru");
