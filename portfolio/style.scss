@@ -1,4 +1,8 @@
 $color-golden: #bdae82;
+:root {
+  --body-color: #000;
+  --main-color: #bdae82;
+}
 
 @font-face {
   font-family: "Merriweather";
@@ -39,14 +43,10 @@ button:focus {
 }
 
 body {
-  background: #000;
+  background: var(--body-color);
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: white;
-}
-
-.burger {
-  display: none;
 }
 
 .container {
@@ -66,6 +66,8 @@ body {
 }
 
 .logo {
+  width: 50px;
+  height: 50px;
   background-image: url("./assets/svg/logo.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -78,15 +80,17 @@ body {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
-.nav {
-  margin-left: auto;
-  margin-right: 15px;
+.header-content {
+  width: 620px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-list {
   display: flex;
-  justify-content: space-around;
-  width: 475px;
+  justify-content: space-between;
+  width: 445px;
   padding: 0;
   list-style-type: none;
 }
@@ -111,7 +115,7 @@ body {
   font-size: 20px;
   line-height: 50px;
   color: white;
-  
+
   .lang {
     cursor: pointer;
   }
@@ -121,8 +125,27 @@ body {
   color: $color-golden;
 }
 
+.theme {
+  width: 45px;
+  height: 45px;
+  background-image: url(./assets/svg/carbon_sun.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &.active {
+    width: 35px;
+    height: 35px;
+    background-image: url(./assets/svg/moon.svg);
+  }
+}
+
+.burger {
+  display: none;
+}
+
 .main-container {
-  background: #000;
+  background: var(--body-color);
 }
 
 /* section HERO */
@@ -139,6 +162,10 @@ body {
 
 .container-inner {
   width: 38%;
+
+  .text {
+    color: white;
+  }
 }
 
 .title {
@@ -147,6 +174,7 @@ body {
   font-style: normal;
   font-size: 60px;
   line-height: 120px;
+  color: white;
 }
 
 .text {
@@ -188,7 +216,7 @@ body {
   border: 2px solid #bdae82;
   box-sizing: border-box;
   border-radius: 0px;
-  color: $color-golden;
+  color: var(--main-color);
 }
 
 .btn-transparent:active,
@@ -199,6 +227,20 @@ body {
 
 .btn-transparent:hover {
   color: #fff;
+}
+
+.light-theme {
+  .btn-transparent:hover {
+    color: $color-golden;
+  }
+
+  .portfolio-btn__active {
+    color: #fff;
+  }
+
+  .portfolio-btn__active:hover {
+    color: black;
+  }
 }
 
 /* SKILLS section */
@@ -214,12 +256,18 @@ body {
   display: flex;
   justify-content: center;
   width: 50%;
-  background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
+  background-image: linear-gradient(
+    to top,
+    var(--body-color) 39px,
+    var(--main-color) 39px,
+    var(--main-color) 41px,
+    var(--body-color) 41px
+  );
 }
 
 .section-title {
   margin: 0;
-  background-color: #000;
+  background: var(--body-color);
   padding: 0 20px;
   font-family: "Merriweather";
   font-style: normal;
@@ -227,7 +275,7 @@ body {
   font-size: 40px;
   line-height: 80px;
   text-align: center;
-  color: $color-golden;
+  color: var(--main-color);
 }
 
 .skills-items {
@@ -517,6 +565,14 @@ body {
   color: $color-golden;
 }
 
+.light-theme {
+  color: #000;
+}
+
+.title-wrapper.light-theme {
+  background-image: linear-gradient(to top, var(--body-color) 39px, #000 39px, #000 41px, var(--body-color) 41px);
+}
+
 @media (max-width: 768px) {
   .header-container {
     overflow-x: hidden;
@@ -524,10 +580,12 @@ body {
     background-size: auto 620px;
     background-position: -5px -30px;
 
+    .header-content {
+      max-width: 225px;
+    }
+
     .toogle-lng {
       width: 82px;
-      margin-right: 25px;
-      margin-left: auto;
     }
 
     .burger {
@@ -640,7 +698,6 @@ body {
     .skills-items {
       padding: 44px 40px 20px 40px;
       gap: 50px;
-      
 
       .skill-item {
         width: 300px;
@@ -666,7 +723,7 @@ body {
     }
   }
 
-  .video-section {
+  .video-container {
     padding: 80px 0 0 0;
 
     .video-player {
@@ -738,11 +795,12 @@ body {
 }
 
 @media (max-width: 480px) {
-  // .nav-header.is-active {
-
-  // }
   .header-container {
     padding: 0 20px;
+
+    .header-content {
+      max-width: 200px;
+    }
   }
   .hero-container {
     padding: 80px 20px;

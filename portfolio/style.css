@@ -1,3 +1,8 @@
+:root {
+  --body-color: #000;
+  --main-color: #bdae82;
+}
+
 @font-face {
   font-family: "Merriweather";
   src: url("assets/fonts/Merriweather/Merriweather-Bold.ttf");
@@ -40,14 +45,10 @@ button:focus {
 }
 
 body {
-  background: #000;
+  background: var(--body-color);
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: white;
-}
-
-.burger {
-  display: none;
 }
 
 .container {
@@ -74,6 +75,8 @@ body {
 }
 
 .logo {
+  width: 50px;
+  height: 50px;
   background-image: url("./assets/svg/logo.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -88,18 +91,27 @@ body {
           filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
-.nav {
-  margin-left: auto;
-  margin-right: 15px;
+.header-content {
+  width: 620px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .nav-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  width: 475px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 445px;
   padding: 0;
   list-style-type: none;
 }
@@ -139,8 +151,27 @@ body {
   color: #bdae82;
 }
 
+.theme {
+  width: 45px;
+  height: 45px;
+  background-image: url(./assets/svg/carbon_sun.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.theme.active {
+  width: 35px;
+  height: 35px;
+  background-image: url(./assets/svg/moon.svg);
+}
+
+.burger {
+  display: none;
+}
+
 .main-container {
-  background: #000;
+  background: var(--body-color);
 }
 
 /* section HERO */
@@ -160,12 +191,17 @@ body {
   width: 38%;
 }
 
+.container-inner .text {
+  color: white;
+}
+
 .title {
   margin: 0 0;
   font-family: "Merriweather", serif;
   font-style: normal;
   font-size: 60px;
   line-height: 120px;
+  color: white;
 }
 
 .text {
@@ -209,7 +245,7 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 0px;
-  color: #bdae82;
+  color: var(--main-color);
 }
 
 .btn-transparent:active,
@@ -220,6 +256,18 @@ body {
 
 .btn-transparent:hover {
   color: #fff;
+}
+
+.light-theme .btn-transparent:hover {
+  color: #bdae82;
+}
+
+.light-theme .portfolio-btn__active {
+  color: #fff;
+}
+
+.light-theme .portfolio-btn__active:hover {
+  color: black;
 }
 
 /* SKILLS section */
@@ -245,12 +293,12 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   width: 50%;
-  background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
+  background-image: linear-gradient(to top, var(--body-color) 39px, var(--main-color) 39px, var(--main-color) 41px, var(--body-color) 41px);
 }
 
 .section-title {
   margin: 0;
-  background-color: #000;
+  background: var(--body-color);
   padding: 0 20px;
   font-family: "Merriweather";
   font-style: normal;
@@ -258,7 +306,7 @@ body {
   font-size: 40px;
   line-height: 80px;
   text-align: center;
-  color: #bdae82;
+  color: var(--main-color);
 }
 
 .skills-items {
@@ -642,6 +690,14 @@ body {
   color: #bdae82;
 }
 
+.light-theme {
+  color: #000;
+}
+
+.title-wrapper.light-theme {
+  background-image: linear-gradient(to top, var(--body-color) 39px, #000 39px, #000 41px, var(--body-color) 41px);
+}
+
 @media (max-width: 768px) {
   .header-container {
     overflow-x: hidden;
@@ -649,10 +705,11 @@ body {
     background-size: auto 620px;
     background-position: -5px -30px;
   }
+  .header-container .header-content {
+    max-width: 225px;
+  }
   .header-container .toogle-lng {
     width: 82px;
-    margin-right: 25px;
-    margin-left: auto;
   }
   .header-container .burger {
     display: -webkit-box;
@@ -790,16 +847,16 @@ body {
   .portfolio-container .portfolio-buttons {
     padding-top: 50px;
   }
-  .video-section {
+  .video-container {
     padding: 80px 0 0 0;
   }
-  .video-section .video-player {
+  .video-container .video-player {
     height: 420px;
     margin-top: 50px;
     background-size: auto 420px;
     background-position-x: -7px;
   }
-  .video-section .video-player .btn-play {
+  .video-container .video-player .btn-play {
     width: 65px;
     height: 65px;
   }
@@ -858,6 +915,9 @@ body {
 @media (max-width: 480px) {
   .header-container {
     padding: 0 20px;
+  }
+  .header-container .header-content {
+    max-width: 200px;
   }
   .hero-container {
     padding: 80px 20px;

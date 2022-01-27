@@ -122,18 +122,17 @@ function getTranslate(lang) {
   langContent.forEach((element) => {
     element.textContent = i18Obj[lang][element.dataset.i18];
   });
-};
+}
 
 langBtn.addEventListener("click", (event) => {
-  langBtns.forEach(element => {
+  langBtns.forEach((element) => {
     element.classList.remove("active");
   });
-  event.target.classList.add('active');
+  event.target.classList.add("active");
 
-  if (event.target.textContent === 'RU') {
+  if (event.target.textContent === "RU") {
     getTranslate("ru");
-  }
-  else {
+  } else {
     getTranslate("en");
   }
 });
@@ -141,18 +140,33 @@ langBtn.addEventListener("click", (event) => {
 /* function cashing img */
 
 function preloadImages() {
-  seasons.forEach(season => {
+  seasons.forEach((season) => {
     for (let i = 0; i < season.length; i++) {
       const img = new Image();
-      img.src = `./assets/img/${season}/${i + 1}.jpg`
-      
+      img.src = `./assets/img/${season}/${i + 1}.jpg`;
     }
   });
 }
 
 preloadImages();
 
+/* func change theme */
 
+const themeBtn = document.querySelector(".theme");
+const elementsLightTheme = ["main-container","skills-container","portfolio-container", "title-wrapper", "section-title"];
+// console.log(elementsLightTheme);
 
-
-// getTranslate("ru");
+themeBtn.addEventListener("click", (event) => {
+  const x = event.target;
+  event.target.classList.toggle("active");
+  elementsLightTheme.forEach((element) => {
+    document.querySelector(`.${element}`).classList.toggle("light-theme");
+  });
+  if (event.target.classList.contains("active")) {
+    document.documentElement.style.setProperty("--body-color", "#FFF");
+    document.documentElement.style.setProperty("--main-color", "#000");
+    // document.body.style.background = "#FFF";
+  } else {
+    document.documentElement.style.setProperty("--body-color", "#000");
+  }
+});
