@@ -1,9 +1,12 @@
 "use strict";
 import i18Obj from "./translate.js";
 
-console.log(`your score is - 110 points.
-Отзывы по пунктам ТЗ:
-Все пункты выполнены полностью!`);
+console.log(`Ваша отметка - 80 балла(ов)
+Отзыв по пунктам ТЗ:
+Не выполненные/не засчитанные пункты:
+1) сложные эффекты для кнопок при наведении и/или клике
+Все оставшиеся пункты выполнены и не имеют комментариев проверяющего.
+`);
 
 /* function for checking semantic */
 /* const elemsCount = (selector) => document.querySelectorAll(selector).length;
