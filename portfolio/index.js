@@ -130,7 +130,7 @@ langBtn.addEventListener("click", (event) => {
   });
   event.target.classList.add("active");
 
-  if (event.target.textContent === "RU") {
+  if (event.target.textContent === "ru") {
     getTranslate("ru");
   } else {
     getTranslate("en");
@@ -153,8 +153,15 @@ preloadImages();
 /* func change theme */
 
 const themeBtn = document.querySelector(".theme");
-const elementsLightTheme = ["main-container","skills-container","portfolio-container", "title-wrapper", "section-title"];
-// console.log(elementsLightTheme);
+const elementsLightTheme = [
+  "nav-header",
+  "burger",
+  "main-container",
+  "skills-container",
+  "portfolio-container",
+  "title-wrapper",
+  "section-title",
+];
 
 themeBtn.addEventListener("click", (event) => {
   const x = event.target;
@@ -165,8 +172,75 @@ themeBtn.addEventListener("click", (event) => {
   if (event.target.classList.contains("active")) {
     document.documentElement.style.setProperty("--body-color", "#FFF");
     document.documentElement.style.setProperty("--main-color", "#000");
-    // document.body.style.background = "#FFF";
+    if (burgerNav.classList.contains("is-active")) {
+      burgerNav.style.background = "#FFF";
+      burgerNav.style.color = "#000";
+    }
   } else {
     document.documentElement.style.setProperty("--body-color", "#000");
+    if (burgerNav.classList.contains("is-active")) {
+      burgerNav.style.background = "#000";
+      burgerNav.style.color = "#FFF";
+    }
   }
 });
+
+/* add data to local Storage */
+let lang;
+let theme;
+
+function setLangLocalStorage() {
+  langBtns.forEach((element) => {
+    if (element.classList.contains("active")) {
+      lang = element.textContent;
+      localStorage.setItem("lang", lang);
+    }
+  });
+}
+
+function setThemeLocalStorage(event) {
+  if (event.target.classList.contains("active")) {
+    theme = "light";
+    localStorage.setItem("theme", theme);
+  } else {
+    theme = "dark";
+    localStorage.setItem("theme", theme);
+  }
+}
+
+langBtn.addEventListener("click", setLangLocalStorage);
+themeBtn.addEventListener("click", setThemeLocalStorage);
+
+window.addEventListener("beforeunload", setLangLocalStorage);
+
+function getLocalStorage() {
+  if (localStorage.getItem("lang")) {
+    const lang = localStorage.getItem("lang");
+    langBtns.forEach((element) => {
+      if (element.textContent === lang) {
+        element.classList.add("active");
+      } else {
+        element.classList.remove("active");
+      }
+    });
+    getTranslate(lang);
+  }
+
+  if (localStorage.getItem("theme")) {
+    theme = localStorage.getItem("theme");
+    if (!themeBtn.classList.contains('active') && theme === 'light') {
+      themeBtn.classList.toggle('active')
+      elementsLightTheme.forEach((element) => {
+        document.querySelector(`.${element}`).classList.toggle("light-theme");
+      });
+      document.documentElement.style.setProperty("--body-color", "#FFF");
+      document.documentElement.style.setProperty("--main-color", "#000");
+    }
+    else {
+      document.documentElement.style.setProperty("--body-color", "#000");
+      document.documentElement.style.setProperty("--main-color", "#FFF");
+    }
+  }
+}
+
+window.addEventListener("load", getLocalStorage);
