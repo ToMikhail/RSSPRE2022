@@ -172,16 +172,9 @@ themeBtn.addEventListener("click", (event) => {
   if (event.target.classList.contains("active")) {
     document.documentElement.style.setProperty("--body-color", "#FFF");
     document.documentElement.style.setProperty("--main-color", "#000");
-    if (burgerNav.classList.contains("is-active")) {
-      burgerNav.style.background = "#FFF";
-      burgerNav.style.color = "#000";
-    }
   } else {
     document.documentElement.style.setProperty("--body-color", "#000");
-    if (burgerNav.classList.contains("is-active")) {
-      burgerNav.style.background = "#000";
-      burgerNav.style.color = "#FFF";
-    }
+    document.documentElement.style.setProperty("--main-color", "#bdae82");
   }
 });
 
@@ -238,7 +231,7 @@ function getLocalStorage() {
     }
     else {
       document.documentElement.style.setProperty("--body-color", "#000");
-      document.documentElement.style.setProperty("--main-color", "#FFF");
+      document.documentElement.style.setProperty("--main-color", "#bdae82");
     }
   }
 }
