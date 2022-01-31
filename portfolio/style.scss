@@ -1,4 +1,8 @@
 $color-golden: #bdae82;
+:root {
+  --body-color: #000;
+  --main-color: #bdae82;
+}
 
 @font-face {
   font-family: "Merriweather";
@@ -19,6 +23,7 @@ $color-golden: #bdae82;
 * {
   box-sizing: border-box;
   margin: 0;
+  color: inherit;
 }
 
 html {
@@ -39,14 +44,10 @@ button:focus {
 }
 
 body {
-  background: #000;
+  background: var(--body-color);
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: white;
-}
-
-.burger {
-  display: none;
 }
 
 .container {
@@ -66,6 +67,8 @@ body {
 }
 
 .logo {
+  width: 50px;
+  height: 50px;
   background-image: url("./assets/svg/logo.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -78,21 +81,30 @@ body {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
-.nav {
-  margin-left: auto;
-  margin-right: 15px;
+.header-content {
+  width: 620px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-header {
+  color: #fff;
+}
+.nav-header.light-theme {
+  color: #fff;
 }
 
 .nav-list {
   display: flex;
-  justify-content: space-around;
-  width: 475px;
+  justify-content: space-between;
+  width: 445px;
   padding: 0;
   list-style-type: none;
 }
 
 .nav-link {
-  color: white;
+  // color: white;
   text-decoration: none;
   font-size: 20px;
   line-height: 50px;
@@ -111,7 +123,8 @@ body {
   font-size: 20px;
   line-height: 50px;
   color: white;
-  span {
+
+  .lang {
     cursor: pointer;
   }
 }
@@ -120,16 +133,36 @@ body {
   color: $color-golden;
 }
 
+.theme {
+  width: 45px;
+  height: 45px;
+  background-image: url(./assets/svg/carbon_sun.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &.active {
+    width: 35px;
+    height: 35px;
+    background-image: url(./assets/svg/moon.svg);
+  }
+}
+
+.burger {
+  display: none;
+}
+
 .main-container {
-  background: #000;
+  background: var(--body-color);
 }
 
 /* section HERO */
 
 .hero-container {
   display: flex;
-  padding: 160px 80px 330px 80px;
+  padding: 160px 80px 20% 80px;
   background-image: url("./assets/img/bg1.jpg");
+  background-size: auto 910px;
   background-position: center -90px;
   background-repeat: no-repeat;
   letter-spacing: 0.5px;
@@ -137,6 +170,10 @@ body {
 
 .container-inner {
   width: 38%;
+
+  .text {
+    color: white;
+  }
 }
 
 .title {
@@ -145,6 +182,7 @@ body {
   font-style: normal;
   font-size: 60px;
   line-height: 120px;
+  color: white;
 }
 
 .text {
@@ -172,7 +210,21 @@ body {
   background-color: $color-golden;
 }
 
-.btn-gold:hover {
+.portfolio-buttons {
+  .portfolio-btn {
+    color: $color-golden;
+  }
+
+  .portfolio-btn__active {
+    color: #000;
+    background-color: $color-golden;
+  }
+}
+
+
+
+.btn-gold:hover,
+.portfolio-btn__active:hover {
   color: #fff;
 }
 
@@ -180,16 +232,34 @@ body {
   border: 2px solid #bdae82;
   box-sizing: border-box;
   border-radius: 0px;
-  color: $color-golden;
+  color: var(--main-color);
 }
 
 .btn-transparent:active,
-.btn-transparent:focus {
+.btn-transparent:focus,
+.portfolio-btn__active {
   border: 2px solid $color-golden;
 }
 
 .btn-transparent:hover {
   color: #fff;
+}
+
+.light-theme {
+  .btn-transparent:hover {
+    color: $color-golden;
+  }
+
+  .portfolio-btn {
+    color: #000;
+  }
+  .portfolio-btn__active {
+    color: #fff;
+  }
+
+  .portfolio-btn__active:hover {
+    color: black;
+  }
 }
 
 /* SKILLS section */
@@ -205,12 +275,18 @@ body {
   display: flex;
   justify-content: center;
   width: 50%;
-  background-image: linear-gradient(to top, #000 39px, #bdae82 39px, #bdae82 41px, #000 41px);
+  background-image: linear-gradient(
+    to top,
+    var(--body-color) 39px,
+    var(--main-color) 39px,
+    var(--main-color) 41px,
+    var(--body-color) 41px
+  );
 }
 
 .section-title {
   margin: 0;
-  background-color: #000;
+  background: var(--body-color);
   padding: 0 20px;
   font-family: "Merriweather";
   font-style: normal;
@@ -218,13 +294,13 @@ body {
   font-size: 40px;
   line-height: 80px;
   text-align: center;
-  color: $color-golden;
+  color: var(--main-color);
 }
 
 .skills-items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   width: 100%;
@@ -508,6 +584,14 @@ body {
   color: $color-golden;
 }
 
+.light-theme {
+  color: #000;
+}
+
+.title-wrapper.light-theme {
+  background-image: linear-gradient(to top, var(--body-color) 39px, #000 39px, #000 41px, var(--body-color) 41px);
+}
+
 @media (max-width: 768px) {
   .header-container {
     overflow-x: hidden;
@@ -515,10 +599,12 @@ body {
     background-size: auto 620px;
     background-position: -5px -30px;
 
+    .header-content {
+      max-width: 225px;
+    }
+
     .toogle-lng {
       width: 82px;
-      margin-right: 25px;
-      margin-left: auto;
     }
 
     .burger {
@@ -555,6 +641,12 @@ body {
       }
     }
 
+    .burger.is-active.light-theme {
+      .line {
+        background: #000;
+      }
+    }
+
     .nav-header {
       position: fixed;
       top: 0;
@@ -564,10 +656,19 @@ body {
       margin: 0;
       padding-top: 135px;
       padding-left: 125px;
+      color: #fff;
       transition: all 0.5s ease-in-out;
 
       .nav-list {
         flex-direction: column;
+
+        .nav-item {
+          margin: 16px 0;
+        }
+
+        .nav-link {
+          font-size: 35px;
+        }
       }
     }
 
@@ -575,7 +676,11 @@ body {
       width: 620px;
       right: 0;
       background: #000;
-      opacity: 0.9;
+    }
+
+    .nav-header.is-active.light-theme {
+      background: #fff;
+      color: #000;
     }
   }
 
@@ -630,9 +735,7 @@ body {
 
     .skills-items {
       padding: 44px 40px 20px 40px;
-      justify-content: center;
       gap: 50px;
-      
 
       .skill-item {
         width: 300px;
@@ -658,7 +761,7 @@ body {
     }
   }
 
-  .video-section {
+  .video-container {
     padding: 80px 0 0 0;
 
     .video-player {
@@ -721,13 +824,21 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .nav-header.is-active {
-    width: 100%;
-    padding-left: 20px;
+    .nav-list {
+      align-items: center;
+    }
   }
+}
+
+@media (max-width: 480px) {
   .header-container {
     padding: 0 20px;
+
+    .header-content {
+      max-width: 200px;
+    }
   }
   .hero-container {
     padding: 80px 20px;
