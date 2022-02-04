@@ -88,6 +88,10 @@ body {
           align-items: center;
 }
 
+.nav-item.active {
+  color: #bdae82;
+}
+
 .link {
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -99,7 +103,7 @@ body {
 
 .main-container {
   height: calc(100vh - 100px);
-  background-image: url(./assets/img/forest.jpg);
+  background: url(./assets/img/forest.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   display: -webkit-box;
@@ -129,6 +133,18 @@ body {
 .btn-play:hover {
   -webkit-filter: brightness(0.8);
           filter: brightness(0.8);
+}
+
+.btn-play.pause {
+  background-image: url(./assets/svg/pause.svg);
+}
+
+.label .footer-link {
+  display: block;
+}
+
+.label svg {
+  vertical-align: middle;
 }
 
 .label svg path {
