@@ -16,13 +16,6 @@ a {
 }
 
 body {
-  background: #000;
-}
-
-.container {
-  max-width: 1400px;
-  height: 100vh;
-  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,6 +26,13 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background: #000;
+}
+
+.container-inner {
+  max-width: 1400px;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 .logo {
@@ -88,8 +88,55 @@ body {
           align-items: center;
 }
 
+.link {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.link:hover {
+  color: #bdae82;
+}
+
 .main-container {
-  height: calc(100vw);
+  height: calc(100vh - 100px);
   background-image: url(./assets/img/forest.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn-play {
+  width: 150px;
+  height: 150px;
+  background-image: url(./assets/svg/play.svg);
+  background-size: contain;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.btn-play:hover {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+}
+
+.label svg path {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.label svg:hover path {
+  fill: #bdae82;
 }
 /*# sourceMappingURL=style.css.map */
