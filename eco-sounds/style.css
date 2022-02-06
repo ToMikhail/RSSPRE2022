@@ -88,22 +88,39 @@ body {
           align-items: center;
 }
 
-.nav-item.active {
-  color: #bdae82;
-}
-
-.link {
+.nav-item {
+  cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.link:hover {
+.nav-item.active {
   color: #bdae82;
+}
+
+.nav-item:hover {
+  color: #bdae82;
+}
+
+.lang {
+  content: "EN";
+  color: grey;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.lang:hover {
+  color: #bdae82;
+}
+
+.lang.russian {
+  content: "EN";
 }
 
 .main-container {
   height: calc(100vh - 100px);
-  background: url(./assets/img/forest.jpg);
+  background-image: url(./assets/img/forest.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   display: -webkit-box;
