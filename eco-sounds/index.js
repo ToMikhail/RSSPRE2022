@@ -17,14 +17,14 @@ let image = document.querySelector(".main-container");
 
 langBtn.addEventListener('click', () => {
   langBtn.classList.toggle('russian');
+  changeLang();
 
   if(langBtn.classList.contains('russian')) {
-    langBtn.textContent = 'RU';
-  }
-  else {
     langBtn.textContent = 'EN';
   }
-  changeLang()
+  else {
+    langBtn.textContent = 'RU';
+  }
 })
 
 /* func change lang content */
