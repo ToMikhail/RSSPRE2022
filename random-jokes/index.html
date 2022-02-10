@@ -5,19 +5,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quintessential&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="./assets/fist.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
   <title>random-jokes</title>
 </head>
 
 <body>
   <div class="container">
-
+    <header class="header">
+      <div class="header-container">
+        <div class="logo"></div>
+        <div class="lng-container">
+          <p class="lng">BLR</p>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </header>
     <main class="main">
       <div class="main-container">
-        <img src="" alt="" class="img">
-        <button class="btn"></button>
+        <img src="./assets/img/Chuck-Norris-Laughing.jpg" alt="Norris" class="img">
+        <button class="btn">Kill me Chuck!</button>
         <p class="joke"></p>
+        <audio class="audio" src="./assets/audio/zarazitelnyiy-smeh1.mp3"></audio>
       </div>
     </main>
     <footer class="footer">
@@ -40,8 +55,7 @@
       </div>
     </footer>
   </div>
-
-  <script src="./index.js"></script>
+  <script type="module" src="./index.js"></script>
 </body>
 
 </html>
