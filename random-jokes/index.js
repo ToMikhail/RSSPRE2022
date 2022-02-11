@@ -52,3 +52,9 @@ sliderBtn.addEventListener("click", () => {
   setLng();
 });
 sliderBtn.addEventListener("click", getData);
+
+console.log(`Ваша отметка - 70 балла(ов)
+Отзыв по пунктам ТЗ:
+
+Все пункты выполнены полностью!
+`);
