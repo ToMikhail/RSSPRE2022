@@ -2,7 +2,7 @@ const gameStatus = document.querySelector(".game-status");
 const gameBoard = document.querySelector(".game-board");
 const ceils = document.querySelectorAll(".ceil");
 const resetBtn = document.querySelector(".reset");
-const audioWinner = document.querySelector('.winner')
+const audioWinner = document.querySelector(".winner");
 const winningConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -21,6 +21,15 @@ let arrState = ["", "", "", "", "", "", "", "", ""];
 
 let countTurn = 0;
 
+function playAudioWinner() {
+  audioWinner.currentTime = 0;
+  audioWinner.play();
+}
+
+function setBlink() {
+  gameStatus.classList.add("blink");
+}
+
 function checkWinner(array) {
   for (let i = 0; i < winningConditions.length; i++) {
     if (
@@ -28,38 +37,32 @@ function checkWinner(array) {
       array.includes(String(winningConditions[i][1])) &&
       array.includes(String(winningConditions[i][2]))
     ) {
-      gameStatus.innerHTML = `${currentTurn} - won in ${Math.ceil(countTurn / 2)} moves`;
+      gameStatus.innerHTML = `${currentTurn} - won in ${Math.ceil(
+        countTurn / 2
+      )} moves`;
       gameBoard.removeEventListener("click", startGame);
       setBlink();
-      playAudioWinner()
+      playAudioWinner();
       return true;
     }
   }
 }
 
-function playAudioWinner() {
-  audioWinner.currentTime = 0;
-  audioWinner.play();
-}
-
-function setBlink() {
-  gameStatus.classList.add('blink')
-}
-
 function setCeilColor() {
-  ceils.forEach(element => {
-    if(element.innerHTML === 'X') {
-      element.style.color = 'coral';
+  ceils.forEach((element) => {
+    if (element.innerHTML === "X") {
+      element.style.color = "coral";
+      element.style.background = "rgb(231, 231, 231)";
     }
-    if(element.innerHTML === 'O') {
-      element.style.color = 'greenyellow';
+    if (element.innerHTML === "O") {
+      element.style.color = "greenyellow";
+      element.style.background = "rgb(231, 231, 231)";
     }
   });
 }
 
 let startGame = function startGame(event) {
   countTurn += 1;
-  console.log('countTurn: ', countTurn);
   if (event.target.innerHTML === "" && currentTurn === "X") {
     event.target.innerHTML = currentTurn;
     arrX.push(event.target.dataset.ceilIndex);
@@ -68,14 +71,16 @@ let startGame = function startGame(event) {
       checkWinner(arrX);
       setCeilColor();
       currentTurn = "O";
+    } else if (countTurn === 9 && checkWinner(arrX)) {
+      checkWinner(arrX);
+      setCeilColor();
     } else if (countTurn === 9 && !checkWinner(arrX)) {
       console.log("hello");
       checkWinner(arrX);
       setCeilColor();
       gameStatus.innerHTML = `It was in the draw`;
     }
-  }
-  else if (event.target.innerHTML === "" && currentTurn === "O") {
+  } else if (event.target.innerHTML === "" && currentTurn === "O") {
     event.target.innerHTML = currentTurn;
     arrO.push(event.target.dataset.ceilIndex);
     gameStatus.innerHTML = `X - make the next move`;
@@ -91,3 +96,6 @@ resetBtn.addEventListener("click", () => {
   window.location.reload();
   gameStatus.innerHTML = `Let's start`;
 });
+
+// localStorage.setItem('winner', currentTurn);
+// localStorage.setItem('winner', currentTurn);
