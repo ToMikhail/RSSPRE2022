@@ -59,7 +59,7 @@ function setCeilColor() {
 
 let startGame = function startGame(event) {
   countTurn += 1;
-  gameStatus.innerHTML = `${currentTurn} - next step`;
+  console.log('countTurn: ', countTurn);
   if (event.target.innerHTML === "" && currentTurn === "X") {
     event.target.innerHTML = currentTurn;
     arrX.push(event.target.dataset.ceilIndex);
@@ -68,8 +68,11 @@ let startGame = function startGame(event) {
       checkWinner(arrX);
       setCeilColor();
       currentTurn = "O";
-    } else if (countTurn === 9) {
+    } else if (countTurn === 9 && !checkWinner(arrX)) {
+      console.log("hello");
       checkWinner(arrX);
+      setCeilColor();
+      gameStatus.innerHTML = `It was in the draw`;
     }
   }
   else if (event.target.innerHTML === "" && currentTurn === "O") {
@@ -80,10 +83,6 @@ let startGame = function startGame(event) {
     setCeilColor();
     currentTurn = "X";
   }
-  else if (countTurn === 9 && !checkWinner(arrX)) {
-    gameStatus.innerHTML = `It was in the draw`;
-  }
-
 };
 
 gameBoard.addEventListener("click", startGame);
