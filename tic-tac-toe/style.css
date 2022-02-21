@@ -45,7 +45,7 @@ a {
 
 .header-container,
 .footer-container {
-  height: 80px;
+  height: 50px;
   background: #292929;
   padding: 0 20px;
 }
@@ -58,6 +58,7 @@ a {
 .logo {
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
 .logo path {
@@ -78,7 +79,7 @@ a {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 100px);
   margin: 0 auto;
 }
 
@@ -90,8 +91,16 @@ a {
 
 .btn {
   height: 50px;
+  border: none;
   padding: 10px;
   font-size: 24px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #b8b8b8;
 }
 
 .grid-container {
@@ -103,7 +112,7 @@ a {
   width: -moz-fit-content;
   width: fit-content;
   background: #b8b8b8;
-  margin: 50px auto;
+  margin: 0 auto;
 }
 
 .ceil {
@@ -118,7 +127,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 60px;
   -webkit-box-shadow: 0 0 0 1px #333333;
           box-shadow: 0 0 0 1px #333333;
@@ -153,5 +162,29 @@ a {
 
 .label svg:hover path {
   fill: #aaa9a9;
+}
+
+.blink {
+  color: #ff00dd;
+  -webkit-animation: blink 1s infinite;
+          animation: blink 1s infinite;
+}
+
+@-webkit-keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

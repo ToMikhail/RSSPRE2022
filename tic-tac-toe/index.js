@@ -2,6 +2,7 @@ const gameStatus = document.querySelector(".game-status");
 const gameBoard = document.querySelector(".game-board");
 const ceils = document.querySelectorAll(".ceil");
 const resetBtn = document.querySelector(".reset");
+const audioWinner = document.querySelector('.winner')
 const winningConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -27,11 +28,22 @@ function checkWinner(array) {
       array.includes(String(winningConditions[i][1])) &&
       array.includes(String(winningConditions[i][2]))
     ) {
-      gameStatus.innerHTML = `${currentTurn} - winner!`;
+      gameStatus.innerHTML = `${currentTurn} - won in ${Math.ceil(countTurn / 2)} moves`;
       gameBoard.removeEventListener("click", startGame);
+      setBlink();
+      playAudioWinner()
       return true;
     }
   }
+}
+
+function playAudioWinner() {
+  audioWinner.currentTime = 0;
+  audioWinner.play();
+}
+
+function setBlink() {
+  gameStatus.classList.add('blink')
 }
 
 function setCeilColor() {
@@ -51,7 +63,7 @@ let startGame = function startGame(event) {
   if (event.target.innerHTML === "" && currentTurn === "X") {
     event.target.innerHTML = currentTurn;
     arrX.push(event.target.dataset.ceilIndex);
-    gameStatus.innerHTML = `O - next step`;
+    gameStatus.innerHTML = `O - make the next move`;
     if (countTurn !== 9) {
       checkWinner(arrX);
       setCeilColor();
@@ -63,7 +75,7 @@ let startGame = function startGame(event) {
   else if (event.target.innerHTML === "" && currentTurn === "O") {
     event.target.innerHTML = currentTurn;
     arrO.push(event.target.dataset.ceilIndex);
-    gameStatus.innerHTML = `X - next step`;
+    gameStatus.innerHTML = `X - make the next move`;
     checkWinner(arrO);
     setCeilColor();
     currentTurn = "X";
