@@ -275,6 +275,10 @@ a {
   cursor: pointer;
 }
 
+.score-table-ceil {
+  text-align: center;
+}
+
 /* footer */
 .label .footer-link {
   display: block;
