@@ -2,7 +2,16 @@ const gameStatus = document.querySelector(".game-status");
 const gameBoard = document.querySelector(".game-board");
 const ceils = document.querySelectorAll(".ceil");
 const resetBtn = document.querySelector(".reset");
+const resetContentBtn = document.querySelector(".btn-reset--content");
 const audioWinner = document.querySelector(".winner");
+const popUpResult = document.querySelector(".pop-up");
+const score = document.querySelector(".score");
+const scoreMenu = document.querySelector(".score-menu");
+const scoreTableBody = document.querySelector(".table-body");
+const closeMenu = document.querySelector(".close-menu");
+const rowTableWinnerX = "<td class='score-table-ceil'>Win</td><td></td>";
+const rowTableWinnerO = "<td class='score-table-ceil'></td><td>Win</td>";
+
 const winningConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -18,8 +27,25 @@ let currentTurn = "X";
 let arrX = [];
 let arrO = [];
 let arrState = ["", "", "", "", "", "", "", "", ""];
-
 let countTurn = 0;
+
+function setWinner(array) {
+  if (currentTurn === "X") {
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+    }
+  }
+}
+
+function openScore() {
+  scoreMenu.classList.toggle("active");
+}
+
+function closeScore() {
+  scoreMenu.classList.toggle("active");
+}
+
+score.addEventListener("click", openScore);
 
 function playAudioWinner() {
   audioWinner.currentTime = 0;
@@ -27,7 +53,7 @@ function playAudioWinner() {
 }
 
 function setBlink() {
-  gameStatus.classList.add("blink");
+  resetContentBtn.classList.add("blink");
 }
 
 function checkWinner(array) {
@@ -37,25 +63,29 @@ function checkWinner(array) {
       array.includes(String(winningConditions[i][1])) &&
       array.includes(String(winningConditions[i][2]))
     ) {
-      gameStatus.innerHTML = `${currentTurn} - won in ${Math.ceil(
-        countTurn / 2
-      )} moves`;
+      gameStatus.innerHTML = `${currentTurn} - won in ${countTurn} moves`;
       gameBoard.removeEventListener("click", startGame);
       setBlink();
       playAudioWinner();
+      popUpResult.style.display = "block";
+      addNoteToScoreBoard(currentTurn);
       return true;
     }
   }
 }
 
+function setResultLocalStore() {
+  localStorage.setItem("key", { currentTurn: countTurn });
+}
+
 function setCeilColor() {
   ceils.forEach((element) => {
     if (element.innerHTML === "X") {
-      element.style.color = "coral";
+      element.style.color = "crimson";
       element.style.background = "rgb(231, 231, 231)";
     }
     if (element.innerHTML === "O") {
-      element.style.color = "greenyellow";
+      element.style.color = "lime";
       element.style.background = "rgb(231, 231, 231)";
     }
   });
@@ -75,10 +105,11 @@ let startGame = function startGame(event) {
       checkWinner(arrX);
       setCeilColor();
     } else if (countTurn === 9 && !checkWinner(arrX)) {
-      console.log("hello");
       checkWinner(arrX);
       setCeilColor();
       gameStatus.innerHTML = `It was in the draw`;
+      setBlink();
+      popUpResult.style.display = "block";
     }
   } else if (event.target.innerHTML === "" && currentTurn === "O") {
     event.target.innerHTML = currentTurn;
@@ -92,10 +123,40 @@ let startGame = function startGame(event) {
 
 gameBoard.addEventListener("click", startGame);
 
+closeMenu.addEventListener("click", closeScore);
+
 resetBtn.addEventListener("click", () => {
-  window.location.reload();
-  gameStatus.innerHTML = `Let's start`;
+  ceils.forEach((element) => {
+    element.textContent = "";
+    element.style.background = "none";
+  });
+  popUpResult.style.display = "none";
+  currentTurn = "X";
+  arrX = [];
+  arrO = [];
+  gameBoard.addEventListener("click", startGame);
+  countTurn = 0;
+  //   window.location.reload();
+  //   popUpResult.style.display = "none";
+  //   gameStatus.innerHTML = `Let's start`;
 });
 
-// localStorage.setItem('winner', currentTurn);
-// localStorage.setItem('winner', currentTurn);
+function addNoteToScoreBoard(winner) {
+  let rowScore = document.querySelectorAll(".row");
+  if (winner === "X") {
+    winner =
+      "<td class='score-table-ceil score-table--ceil-x'>Win</td><td class='score-table-ceil score-table--ceil-x'>Lose</td>";
+  }
+  else if (winner === "O") {
+    winner =
+      "<td class='score-table-ceil score-table--ceil-x'>Lose</td><td class='score-table-ceil score-table--ceil-x'>Win</td>";
+  } else {
+    winner =
+      "<td class='score-table-ceil score-table--ceil-x'>-</td><td class='score-table-ceil score-table--ceil-x'>-</td>";
+  }
+  rowScore[0].remove();
+  let tr = document.createElement("tr");
+  tr.classList.add("row");
+  tr.innerHTML = winner;
+  scoreTableBody.append(tr);
+}

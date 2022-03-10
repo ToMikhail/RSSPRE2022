@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Festive&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Festive&family=Inconsolata&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -40,12 +41,85 @@
             </g>
           </svg>
         </div>
+        <h1 class="title">Tic Tac Toe</h1>
+        <div class="score">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+            y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+            <g>
+              <path
+                d="M258.6,10h55.9c10.3,0,18.7,7.7,18.7,17.1v142.2c0,9.4-8.4,17.1-18.7,17.1h-55.9c-10.3,0-18.7-7.7-18.7-17.1V27.1C239.9,17.7,248.3,10,258.6,10L258.6,10z M580.6,855.5l218.5-218.6l93.6,93.6L674.2,949.1L539.7,990L580.6,855.5L580.6,855.5z M836.4,599.7l30-30c12.9-12.9,33.9-12.9,46.8,0l46.8,46.8c12.9,12.9,12.9,33.9,0,46.8l-30,30L836.4,599.7L836.4,599.7z M202.3,730.7h373v45.5h-373V730.7L202.3,730.7z M202.3,585.6h469.3v45.5H202.3V585.6L202.3,585.6z M202.3,440.6h469.3v45.5H202.3V440.6L202.3,440.6z M202.3,295.5h469.3V341H202.3V295.5L202.3,295.5z M218.9,65.3V126c-48.6,0-122.2-3.6-122.2,66.4v670.4c0,39.1,35.5,66.3,72.5,66.3H437v60.7H169.2c-70.8,0-138.8-52.3-138.8-127V192.4C30.4,80.3,133.7,65.3,218.9,65.3L218.9,65.3z M757.6,547.3V192.4c0-68.7-74.8-66.4-122.2-66.4V65.3c84.9,0,188.5,18.1,188.5,127v354.9H757.6L757.6,547.3z M355.7,65.3h143V126h-143V65.3z M539.5,10h55.9c10.3,0,18.7,7.7,18.7,17.1v142.2c0,9.4-8.4,17.1-18.7,17.1h-55.9c-10.3,0-18.7-7.7-18.7-17.1V27.1C520.8,17.7,529.2,10,539.5,10z" />
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
 
     <div class="main">
       <div class="main-container">
-        <h1 class="title">Tic Tac Toe</h1>
+        <div class="score-menu">
+          <div class="close-menu">
+            <span class="line"></span>
+          </div>
+          <table class="score-table">
+            <caption class="caption">Score</caption>
+            <thead class="table-header">
+              <tr >
+                <th class="score-table-ceil table-ceil-title">Cross</th>
+                <th class="score-table-ceil table-ceil-title">Nought</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr class="row">
+                <td class="score-table-ceil">asdasdas</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">1</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">2</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">3</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">4</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">5</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">6</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">7</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">8</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+              <tr class="row">
+                <td class="score-table-ceil">9</td>
+                <td class="score-table-ceil"></td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+        <div class="pop-up">
+          <div class="pop-container">
+            <p class="text game-status"></p>
+            <button class="btn reset"><span class="btn-reset--content">Restart Game</span> </button>
+          </div>
+        </div>
         <div class="grid-container game-board">
           <div data-ceil-index="0" class="ceil"></div>
           <div data-ceil-index="1" class="ceil"></div>
@@ -57,8 +131,7 @@
           <div data-ceil-index="7" class="ceil"></div>
           <div data-ceil-index="8" class="ceil"></div>
         </div>
-        <h2 class="text game-status">Let's start</h2>
-        <button class="btn reset">Restart Game</button>
+        <!-- <p class="text">Let's start</p> -->
         <audio class="winner" src="./assets/audio/win.mp3"></audio>
       </div>
     </div>
