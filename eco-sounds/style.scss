@@ -1,0 +1,149 @@
+$color-gold: #bdae82;
+
+* {
+  margin: 0;
+  color: #fff;
+  font-family: "B612", sans-serif;
+  font-size: 20px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #000;
+}
+
+.container-inner {
+  max-width: 1400px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 100%;
+  cursor: pointer;
+
+  .logo__img {
+    width: 50px;
+    height: 50px;
+
+    path {
+      fill: $color-gold;
+      transition: 0.3s;
+    }
+  }
+}
+
+.logo:hover {
+  path {
+    fill: white;
+  }
+}
+
+.header-container,
+.footer-container {
+  height: 50px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  width: 600px;
+}
+.nav-items {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+.nav-item.active {
+  color: $color-gold;
+}
+
+.nav-item:hover {
+  color: $color-gold;
+}
+
+.lang {
+  content: "EN";
+  color: grey;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.lang:hover {
+  color: $color-gold;
+}
+
+// .lang.russian {
+//   content: "EN";
+// }
+
+.main-container {
+  height: calc(100vh - 100px);
+  background-image: url(./assets/img/forest.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-play {
+  width: 150px;
+  height: 150px;
+  background-image: url(./assets/svg/play.svg);
+  background-size: contain;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.btn-play:hover {
+  filter: brightness(.8)
+}
+
+.btn-play.pause {
+  background-image: url(./assets/svg/pause.svg);
+}
+
+.label {
+  .footer-link {
+    display: block;
+  }
+  svg {
+    vertical-align: middle;
+    path {
+      transition: .3s;
+    }
+  }
+
+  svg:hover {
+    path {
+      fill: $color-gold;
+    }
+  }
+}
