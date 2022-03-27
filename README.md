@@ -1,2 +1,2 @@
-# tomikhail-JSFEPRESCHOOL
+# mikhail-JSFEPRESCHOOL
 Private repository for @tomikhail
